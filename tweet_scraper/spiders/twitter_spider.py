@@ -9,7 +9,7 @@ class TwitterSpider(scrapy.Spider):
     name = "twitter"
     allowed_domains = ["twitter.com"]
     #start_urls = ["https://www.twitter.com/realDonaldTrump"]
-    start_authors = ['realDonaldTrump']
+    start_authors = []
     
     def __init__(self):
         with open("authors") as f:
