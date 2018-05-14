@@ -10,6 +10,7 @@ import json
 from scrapy.conf import settings
 from tweet_scraper.items import TweetItem
 
+#将爬取的数据直接存入mongodb
 class SaveToMongoPipeline(object):
 
     def __init__(self):
