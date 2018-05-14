@@ -18,7 +18,7 @@ DownloadMiddleWare选择: (setting.py中配置DOWNLOAD_MIDLEWARES)
 3. scrapy-fake-useragent: useragent faker库
 
 
-#目前进展
+# 目前进展
 已测试：100个指定author的twitter爬取，几分钟可爬完1800-2000左右的tweets(每个author爬取最新20条tweets)，只用1个ip代理，加了fake agents，没被封- -
 
 测试机器配置：
