@@ -1,3 +1,8 @@
+
+[![Build Status](https://travis-ci.org/ESPromise/TweetScraper.svg?branch=master)](https://travis-ci.org/ESPromise/TweetScraper)
+[![Coverage Status](https://coveralls.io/repos/github/ESPromise/TweetScraper/badge.svg?branch=master)](https://coveralls.io/github/ESPromise/TweetScraper?branch=master)
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/ESPromise/TweetScraper)
+
 # tweet_scraper
 用来爬取指定author的tweets爬虫
 author列表: ./tweet_scraper/spiders/authors
