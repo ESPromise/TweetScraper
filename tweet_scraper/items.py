@@ -13,3 +13,7 @@ class TweetItem(scrapy.Item):
     timestamp = scrapy.Field()
     text = scrapy.Field()
     author = scrapy.Field()
+
+class RedditmetricsItem(scrapy.Item):
+    subscribers = scrapy.Field()
+    subreddit = scrapy.Field()

@@ -6,6 +6,8 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+import random  
+from tweet_scraper.settings import IPPOOL
 
 
 class TweetScraperSpiderMiddleware(object):
@@ -101,3 +103,12 @@ class TweetScraperDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+class MyproxiesSpiderMiddleware(object):
+    def __init__(self,ip=''):  
+        self.ip=ip  
+         
+    def process_request(self, request, spider):  
+        thisip=random.choice(IPPOOL)  
+        print("this is ip:"+thisip["ipaddr"])  
+        request.meta["proxy"]="http://"+thisip["ipaddr"]

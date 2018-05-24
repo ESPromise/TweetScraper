@@ -1,6 +1,7 @@
 import scrapy
 import logging
 from tweet_scraper.items import TweetItem
+from scrapy.conf import settings
 
 logging.basicConfig(level = logging.INFO,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -9,18 +10,18 @@ class TwitterSpider(scrapy.Spider):
     name = "twitter"
     allowed_domains = ["twitter.com"]
     #start_urls = ["https://www.twitter.com/realDonaldTrump"]
-    start_authors = []
+    start_authors = ['realDonaldTrump']
     
     def __init__(self):
-        with open("authors") as f:
-            for author in f:
-                author = author.strip()
-                self.start_authors.append(author)
+        for author in settings['AUTHORS']:
+            author = author.strip()
+            self.start_authors.append(author)
 
     def start_requests(self):
+        print("ESP!!")
         for author in self.start_authors:
             url = 'https://twitter.com/' + author
-            yield scrapy.http.Request(url, meta={'author' : author}, callback=self.parse_page, dont_filter = True)
+            yield scrapy.http.Request(url, meta={'author':author}, callback=self.parse_page, dont_filter = True)
 
     def parse_page(self, response):
         item_selectors = response.css(".TweetTextSize")
@@ -31,7 +32,7 @@ class TwitterSpider(scrapy.Spider):
     def parse_tweet_item(self, item_selectors, time_selectors, author):
         if (len(item_selectors) != len(time_selectors)):
             logger.warning("wrong page") 
-            return null
+            yield null
 
         for i in range(0, len(item_selectors)):
             tweet = TweetItem()
