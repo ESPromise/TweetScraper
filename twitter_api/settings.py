@@ -1,9 +1,6 @@
 
 #twitter app Oauth info.
-CONSUMER_KEY = "bMgoItrkScpW5z9f5l5ohJ4Al"
-CONSUMER_SECRET = "V79yQVrkXi4Mpql5WOrK7D73IkgFXRz4lDMNbDdzZ2epO2NfDH"
-ACCESS_TOKEN =  "993839802234454016-1Z40KKzIxohxgr2tyeaEuhWan6erzpk"
-ACCESS_TOKEN_SECRET= "BXiEXVLJiahVozQ00haNmp3kx2A7js3PaH6qIrMstNfwn"
+
 
 #settings for mongo db
 MONGODB_SERVER = "127.0.0.1"
