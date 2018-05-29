@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'tweet_scraper.spiders'
 #USER_AGENT = 'tweet_scraper (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -32,7 +32,7 @@ FAKEUSERAGENT_FALLBACK = "Mozilla"
 DOWNLOAD_DELAY = 5
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 5
+CONCURRENT_REQUESTS_PER_IP = 1
 
 # Disable cookies (enabled by default)
 COOKIES_ENABLED = False
@@ -60,6 +60,7 @@ DOWNLOADER_MIDDLEWARES = {
     #'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     #'scrapy_fake_useragent.middleware.RandomUserAgentMiddleware': 100,
     'tweet_scraper.middlewares.MyproxiesSpiderMiddleware': 130,
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware':543,
     #'scrapy_crawlera.CrawleraMiddleware': 600
 } 
 
@@ -112,6 +113,9 @@ IPPOOL=[
         {"ipaddr":"13.113.17.173:8887"},
         {"ipaddr":"138.128.218.91:8887"},
 ]  
+#IPPOOL=[
+#    {"ipaddr":"127.0.0.1:8118"}
+#]
 
 #authors
 AUTHORS=[     
@@ -217,8 +221,3 @@ AUTHORS=[
     "derose",
 ]
 
-#Crawlera settings
-CRAWLERA_ENABLED = True
-CRAWLERA_USER = 'espromise'
-CRAWLERA_APIKEY = '3881141'
-CRAWLERA_PASS = ''

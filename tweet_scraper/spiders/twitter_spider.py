@@ -10,7 +10,7 @@ class TwitterSpider(scrapy.Spider):
     name = "twitter"
     allowed_domains = ["twitter.com"]
     #start_urls = ["https://www.twitter.com/realDonaldTrump"]
-    start_authors = ['realDonaldTrump']
+    start_authors = []
     
     def __init__(self):
         for author in settings['AUTHORS']:
@@ -26,6 +26,7 @@ class TwitterSpider(scrapy.Spider):
     def parse_page(self, response):
         item_selectors = response.css(".TweetTextSize")
         time_selectors = response.css("._timestamp")
+        print("proxy_ip: "+ response.meta['proxy'])
         for item in self.parse_tweet_item(item_selectors, time_selectors, response.meta['author']):
             yield item
 
